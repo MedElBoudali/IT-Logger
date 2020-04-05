@@ -1,15 +1,15 @@
-import React from "react";
-import Logo from "./Assets/Images/logo.webp";
+import React, { useEffect } from "react";
+import Home from "./Pages/Home";
+import "materialize-css/dist/css/materialize.min.css";
+import M from "materialize-css/dist/js/materialize.min.js";
+import "./Assets/Style/App.css";
 
-function App() {
-  return (
-    <div className="App container">
-      <div className="logo">
-        <img src={Logo} alt="Logo" />
-        <h1>IT Logger</h1>
-      </div>
-    </div>
-  );
-}
+const App = () => {
+  useEffect(() => {
+    M.AutoInit();
+  });
+
+  return <Home />;
+};
 
 export default App;
