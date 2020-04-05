@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 html {
@@ -31,13 +31,25 @@ code {
   text-align: center;
   background-color: rgb(75, 0, 146);
   height: 100vh;
+  width: 100%;
+  margin: 0 auto !important;
 }
 
-.App h1 {
-  color: #eee;
+.logo {
   position: absolute;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.logo h1 {
+  color: #eee;
+  font-size: 2rem;
+  font-family: "Varela Round";
+}
+
+.logo img {
+  width: 90px;
+  margin-bottom: 10px;
 }
