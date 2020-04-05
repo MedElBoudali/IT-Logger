@@ -35,14 +35,6 @@ code {
   margin: 0 auto !important;
 }
 
-.logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
 .logo h1 {
   color: #eee;
   font-size: 2rem;
