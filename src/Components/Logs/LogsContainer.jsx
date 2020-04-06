@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Logo from "../../Assets/Images/logo.webp";
 import LogItem from "./LogItem";
+import Preloader from "../Layouts/Preloader";
 
 const LogsContainer = () => {
   const [getLogs, setLogs] = useState([]);
@@ -19,13 +20,15 @@ const LogsContainer = () => {
   };
 
   if (getLoading) {
-    return <h4>Loading ...</h4>;
+    return <Preloader />;
   }
 
   return (
     <ul className="collection with-header">
       <li className="collection-header">
-        <h4 className="header center"><img className="logo" src={Logo} alt="Logo" /> System Logs</h4>
+        <h4 className="header center">
+          <img className="logo" src={Logo} alt="Logo" /> System Logs
+        </h4>
       </li>
       {!getLoading && getLogs.length === 0 ? (
         <p className="center">No Logs To Show !</p>
