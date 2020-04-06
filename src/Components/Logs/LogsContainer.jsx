@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Logo from "../../Assets/Images/logo.webp";
+import LogItem from "./LogItem";
 
 const LogsContainer = () => {
   const [getLogs, setLogs] = useState([]);
@@ -21,14 +23,14 @@ const LogsContainer = () => {
   }
 
   return (
-    <ul className="collection-with-header">
+    <ul className="collection with-header">
       <li className="collection-header">
-        <h4 className="center">System Logs</h4>
+        <h4 className="header center"><img className="logo" src={Logo} alt="Logo" /> System Logs</h4>
       </li>
       {!getLoading && getLogs.length === 0 ? (
         <p className="center">No Logs To Show !</p>
       ) : (
-        getLogs.map((log) => <li>{log.message}</li>)
+        getLogs.map((log) => <LogItem log={log} key={log.id} />)
       )}
     </ul>
   );
