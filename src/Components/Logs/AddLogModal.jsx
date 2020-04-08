@@ -64,11 +64,11 @@ const AddLogModal = () => {
           </div>
         </div>
       </div>
-      <div className="modal-footer">
+      <div className="modal-footer" style={{textAlign: "center"}}>
         <a
           href="#!"
           onClick={onSubmit}
-          className="modal-close waves-effect waves-green btn blue"
+          className="modal-close waves-effect waves-green blue btn"
         >
           Enter
         </a>
