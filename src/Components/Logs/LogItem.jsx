@@ -15,7 +15,7 @@ const LogItem = ({ log }) => {
       <span className="grey-text">
         <span className="black-text">ID #{log.id}</span> Last updated by{" "}
         <span className="black-text">{log.tech}</span> on <i className="tiny material-icons mr5">access_time</i>
-        {Moment(log.date).format("DD/MMMM/YYYY - hh:mm")}
+        {Moment(log.date).format("hh:mm - DD/MMMM/YYYY")}
       </span>
       <a href="#!" className="secondary-content"><i className="material-icons grey-text">delete</i></a>
     </li>
