@@ -5,6 +5,7 @@ import AddBtn from "../Layouts/AddBtn";
 import AddModalLog from "../Logs/AddLogModal";
 import EditModalLog from "../Logs/EditLogModal";
 import AddTechModal from "../Techs/AddTechModal";
+import TechListModal from "../Techs/TechListModal";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <AddModalLog />
       <EditModalLog />
       <AddTechModal />
+      <TechListModal />
       <LogsContainer />
     </div>
   );
