@@ -8,6 +8,7 @@ import AddTechModal from "../Techs/AddTechModal";
 import TechListModal from "../Techs/TechListModal";
 
 const Home = () => {
+
   return (
     <div className="App container">
       <SearchBar />

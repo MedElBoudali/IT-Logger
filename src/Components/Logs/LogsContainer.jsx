@@ -9,6 +9,7 @@ const LogsContainer = () => {
 
   useEffect(() => {
     fetchLogs();
+    // eslint-disable-next-line
   }, []);
 
   const fetchLogs = async () => {

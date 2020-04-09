@@ -9,10 +9,25 @@ const AddTechModal = () => {
     if (getFirstname === "" || getLastname === "") {
       M.toast({ html: "Please Enter First & Last name" });
     } else {
-      console.log(getFirstname, getLastname);
+      // Add New Tech
+      postData("/techs", {
+        firstName: getFirstname,
+        lastName: getLastname,
+      }).then((res) => console.log("Done"));
       setFirstname("");
       setLastname("");
     }
+  };
+
+  const postData = async (url, data) => {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    return res.json();
   };
 
   return (

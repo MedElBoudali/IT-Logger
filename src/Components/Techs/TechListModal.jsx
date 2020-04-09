@@ -25,7 +25,7 @@ const TechListModal = () => {
           <img src={TechLogo} alt="techLogo" className="logo" /> Technicien List
         </h4>
         <ul className="collection">
-          {!getLoading && getTechs.map((tech) => <TechItem tech={tech} />)}
+          {!getLoading && getTechs.map((tech) => <TechItem tech={tech} key={tech.id}/>)}
         </ul>
       </div>
     </div>

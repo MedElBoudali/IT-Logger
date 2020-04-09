@@ -5,14 +5,32 @@ const AddLogModal = () => {
   const [getAttention, setAttention] = useState(false);
   const [getTech, setTech] = useState("");
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (getMessage === "" || getTech === "") {
       M.toast({ html: "Please Enter Message and Tech" });
     } else {
-      console.log(getMessage, getAttention, getTech);
+      // Add New Log
+      await postData("/logs", {
+        message: getMessage,
+        attention: getAttention,
+        tech: getTech,
+        date: Date.now(),
+      });
+
       setMessage("");
       setTech("");
     }
+  };
+
+  const postData = async (url, data) => {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    return res.json();
   };
 
   return (
