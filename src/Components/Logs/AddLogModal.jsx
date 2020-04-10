@@ -89,10 +89,7 @@ const AddLogModal = ({ addLog }) => {
 };
 
 AddLogModal.prototype = {
-  log: PropTypes.object.isRequired,
   addLog: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = () => {};
-
-export default connect(mapStateToProps, { addLog })(AddLogModal);
+export default connect(null, { addLog })(AddLogModal);

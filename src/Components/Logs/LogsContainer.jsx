@@ -32,7 +32,10 @@ const LogsContainer = ({ log: { logs, loading }, getLogs }) => {
   );
 };
 
-LogsContainer.prototype = { log: PropTypes.object.isRequired };
+LogsContainer.prototype = {
+  log: PropTypes.object.isRequired,
+  getLogs: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => ({ log: state.log });
 
