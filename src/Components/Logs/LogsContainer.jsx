@@ -1,26 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { getLogs } from "../../Actions/LogActions";
 import Logo from "../../Assets/Images/logo.webp";
 import LogItem from "./LogItem";
 import Preloader from "../Layouts/Preloader";
+import PropTypes from "prop-types";
 
-const LogsContainer = () => {
-  const [getLogs, setLogs] = useState([]);
-  const [getLoading, setLoading] = useState(false);
-
+const LogsContainer = ({ log: { logs, loading }, getLogs }) => {
   useEffect(() => {
-    fetchLogs();
+    getLogs();
     // eslint-disable-next-line
   }, []);
 
-  const fetchLogs = async () => {
-    setLoading(true);
-    const res = await fetch("/logs");
-    const data = await res.json();
-    setLogs(data);
-    setLoading(false);
-  };
-
-  if (getLoading) {
+  if (loading || logs === null) {
     return <Preloader />;
   }
 
@@ -31,13 +23,17 @@ const LogsContainer = () => {
           <img className="logo" src={Logo} alt="Logo" /> System Logs
         </h4>
       </li>
-      {!getLoading && getLogs.length === 0 ? (
+      {!loading && logs.length === 0 ? (
         <p className="center">No Logs To Show !</p>
       ) : (
-        getLogs.map((log) => <LogItem log={log} key={log.id} />)
+        logs.map((log) => <LogItem log={log} key={log.id} />)
       )}
     </ul>
   );
 };
 
-export default LogsContainer;
+LogsContainer.prototype = { log: PropTypes.object.isRequired };
+
+const mapStateToProps = (state) => ({ log: state.log });
+
+export default connect(mapStateToProps, { getLogs })(LogsContainer);
