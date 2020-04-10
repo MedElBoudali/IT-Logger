@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addLog } from "../../Actions/LogActions";
 import M from "materialize-css/dist/js/materialize";
-const AddLogModal = () => {
+import PropTypes from "prop-types";
+
+const AddLogModal = ({ log: { logs }, addLog }) => {
   const [getMessage, setMessage] = useState("");
   const [getAttention, setAttention] = useState(false);
   const [getTech, setTech] = useState("");
@@ -10,27 +14,10 @@ const AddLogModal = () => {
       M.toast({ html: "Please Enter Message and Tech" });
     } else {
       // Add New Log
-      await postData("/logs", {
-        message: getMessage,
-        attention: getAttention,
-        tech: getTech,
-        date: Date.now(),
-      });
-
+      addLog(logs.length + 1, getMessage, getAttention, getTech);
       setMessage("");
       setTech("");
     }
-  };
-
-  const postData = async (url, data) => {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    return res.json();
   };
 
   return (
@@ -101,4 +88,11 @@ const AddLogModal = () => {
   );
 };
 
-export default AddLogModal;
+AddLogModal.prototype = {
+  log: PropTypes.object.isRequired,
+  addLog: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({ log: state.log });
+
+export default connect(mapStateToProps, { addLog })(AddLogModal);

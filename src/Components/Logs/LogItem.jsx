@@ -4,7 +4,11 @@ import PropTypes from "prop-types";
 
 const LogItem = ({ log }) => {
   return (
-    <li className="collection-item">
+    <li
+      className={`collection-item  ${
+        log.attention ? "red lighten-5" : "blue lighten-5"
+      }`}
+    >
       <a
         href="#edit-log-modal"
         className={`modal-trigger ${log.attention ? "red-text" : "blue-text"}`}
@@ -14,10 +18,13 @@ const LogItem = ({ log }) => {
       <br />
       <span className="grey-text">
         <span className="black-text">ID #{log.id}</span> Last updated by{" "}
-        <span className="black-text">{log.tech}</span> on <i className="tiny material-icons mr5">access_time</i>
-        {Moment(log.date).format("hh:mm - DD/MMMM/YYYY")}
+        <span className="black-text">{log.tech}</span> on{" "}
+        <i className="tiny material-icons mr5">access_time</i>
+        {Moment(log.date).format("hh:mm - MM/DD")}
       </span>
-      <a href="#!" className="secondary-content"><i className="material-icons grey-text">delete</i></a>
+      <a href="#!" className="secondary-content">
+        <i className="material-icons grey-text">delete</i>
+      </a>
     </li>
   );
 };

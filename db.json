@@ -36,18 +36,25 @@
       "id": 5
     },
     {
-      "message": "sdsdsd",
-      "attention": true,
-      "tech": "Jhon Doe",
-      "date": 1586393034187,
+      "message": "Changed network card in server 008",
+      "attention": false,
+      "tech": "Mom Doe",
+      "date": 1586480866383,
       "id": 6
     },
     {
-      "message": "Buying Laptop",
-      "attention": false,
+      "message": "Add LAN card ro pc N4",
+      "attention": true,
       "tech": "Mom Doe",
-      "date": 1586393144680,
+      "date": 1586481055890,
       "id": 7
+    },
+    {
+      "message": "Add new Ram 8GB to PC N77",
+      "attention": false,
+      "tech": "Jhon Doe",
+      "date": 1586481113702,
+      "id": 8
     }
   ],
   "techs": [
