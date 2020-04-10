@@ -23,26 +23,21 @@ export const getLogs = () => async (dispatch) => {
 };
 
 // Add New Log
-export const addLog = (
-  id,
-  message,
-  attention,
-  tech,
-  date = Date.now()
-) => async (dispatch) => {
+export const addLog = (message, attention, tech, date = Date.now()) => async (
+  dispatch
+) => {
   try {
     setLoading();
-    await fetch("/logs", {
+    const res = await fetch("/logs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ message, attention, tech, date }),
     });
-    console.log({ id, message, attention, tech, date });
     dispatch({
       type: ADD_LOGS,
-      payload: { id, message, attention, tech, date },
+      payload: await res.json(),
     });
     // console.log(res);
   } catch (err) {

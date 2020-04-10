@@ -4,7 +4,7 @@ import { addLog } from "../../Actions/LogActions";
 import M from "materialize-css/dist/js/materialize";
 import PropTypes from "prop-types";
 
-const AddLogModal = ({ log: { logs }, addLog }) => {
+const AddLogModal = ({ addLog }) => {
   const [getMessage, setMessage] = useState("");
   const [getAttention, setAttention] = useState(false);
   const [getTech, setTech] = useState("");
@@ -14,7 +14,7 @@ const AddLogModal = ({ log: { logs }, addLog }) => {
       M.toast({ html: "Please Enter Message and Tech" });
     } else {
       // Add New Log
-      addLog(logs.length + 1, getMessage, getAttention, getTech);
+      addLog(getMessage, getAttention, getTech);
       setMessage("");
       setTech("");
     }
@@ -93,6 +93,6 @@ AddLogModal.prototype = {
   addLog: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({ log: state.log });
+const mapStateToProps = () => {};
 
 export default connect(mapStateToProps, { addLog })(AddLogModal);
