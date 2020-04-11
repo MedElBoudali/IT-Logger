@@ -47,7 +47,6 @@ export const addLog = (Log) => async (dispatch) => {
       type: ADD_LOGS,
       payload: await res.json(),
     });
-    // console.log(res);
   } catch (err) {
     dispatch({ type: LOGS_ERROR, payload: err.response.data });
   }
@@ -88,8 +87,7 @@ export const searchLogs = (text) => async (dispatch) => {
   try {
     setLoading();
     const res = await fetch(`/logs?q=${text}`);
-    const data = res.json();
-    dispatch({ type: SEARCH_LOGS, payload: data });
+    dispatch({ type: SEARCH_LOGS, payload: await res.json() });
   } catch (err) {
     dispatch({ type: LOGS_ERROR, payload: err.response.data });
   }
