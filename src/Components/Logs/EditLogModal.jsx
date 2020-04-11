@@ -32,6 +32,7 @@ const EditLogModal = ({ current, updateLog }) => {
       setMessage("");
       setTech("");
       setAttention(false);
+      M.toast({html: `Log Updated For ID: ${current.id}, Tech: ${getTech}`});
     }
   };
 
@@ -96,7 +97,7 @@ const EditLogModal = ({ current, updateLog }) => {
           onClick={onSubmit}
           className="modal-close waves-effect waves-green blue btn"
         >
-          Enter
+          Save Log
         </a>
       </div>
     </div>
