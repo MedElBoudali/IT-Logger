@@ -1,13 +1,11 @@
-import React, { useRef } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { searchLogs } from "../../Actions/LogActions";
 import PropTypes from "prop-types";
 
 const SearchBar = ({ searchLogs }) => {
-  const text = useRef("");
-
-  const onChange = () => {
-    searchLogs(text.current.value);
+  const onChange = (e) => {
+    searchLogs(e.target.value);
   };
 
   return (
@@ -19,7 +17,6 @@ const SearchBar = ({ searchLogs }) => {
               id="search"
               type="search"
               placeholder="Search Logs ..."
-              ref={text}
               onChange={onChange}
             />
             <label className="label-icon" htmlFor="search">
