@@ -5,10 +5,11 @@ import PropTypes from "prop-types";
 
 const SearchBar = ({ searchLogs }) => {
   const text = useRef("");
-  const onChange = (e) => {
-    // e.preventDefault();
+
+  const onChange = () => {
     searchLogs(text.current.value);
   };
+
   return (
     <nav className="purple darken-3">
       <div className="nav-wrapper">
