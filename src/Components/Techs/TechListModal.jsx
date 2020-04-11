@@ -12,7 +12,7 @@ const TechListModal = () => {
 
   const fetchTechs = async () => {
     setLoading(true);
-    const res = await fetch("/techs");
+    const res = await fetch("/techs", { method: "GET" });
     const data = await res.json();
     setTechs(data);
     setLoading(false);
@@ -25,7 +25,8 @@ const TechListModal = () => {
           <img src={TechLogo} alt="techLogo" className="logo" /> Technicien List
         </h4>
         <ul className="collection">
-          {!getLoading && getTechs.map((tech) => <TechItem tech={tech} key={tech.id}/>)}
+          {!getLoading &&
+            getTechs.map((tech) => <TechItem tech={tech} key={tech.id} />)}
         </ul>
       </div>
     </div>

@@ -6,17 +6,25 @@ import PropTypes from "prop-types";
 
 const AddLogModal = ({ addLog }) => {
   const [getMessage, setMessage] = useState("");
-  const [getAttention, setAttention] = useState(false);
   const [getTech, setTech] = useState("");
+  const [getAttention, setAttention] = useState(false);
 
   const onSubmit = async () => {
     if (getMessage === "" || getTech === "") {
       M.toast({ html: "Please Enter Message and Tech" });
     } else {
       // Add New Log
-      addLog(getMessage, getAttention, getTech);
+      const Log = {
+        message: getMessage,
+        attention: getAttention,
+        tech: getTech,
+        date: new Date(),
+      };
+      addLog(Log);
       setMessage("");
       setTech("");
+      setAttention(false);
+      M.toast({ html: `New Log Added For: ${getTech}` });
     }
   };
 

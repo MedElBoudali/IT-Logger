@@ -1,4 +1,10 @@
-import { GET_LOGS, ADD_LOGS, SET_LOADING, LOGS_ERROR } from "./Types";
+import {
+  GET_LOGS,
+  ADD_LOGS,
+  DELETE_LOG,
+  SET_LOADING,
+  LOGS_ERROR,
+} from "./Types";
 
 // 1st Function structure
 // export const getLogs = () => {
@@ -14,7 +20,7 @@ import { GET_LOGS, ADD_LOGS, SET_LOADING, LOGS_ERROR } from "./Types";
 export const getLogs = () => async (dispatch) => {
   try {
     setLoading();
-    const res = await fetch("/logs");
+    const res = await fetch("/logs?_sort=id&_order=desc", { method: "GET" });
     const data = await res.json();
     dispatch({ type: GET_LOGS, payload: data });
   } catch (err) {
@@ -23,9 +29,7 @@ export const getLogs = () => async (dispatch) => {
 };
 
 // Add New Log
-export const addLog = (message, attention, tech, date = Date.now()) => async (
-  dispatch
-) => {
+export const addLog = (Log) => async (dispatch) => {
   try {
     setLoading();
     const res = await fetch("/logs", {
@@ -33,13 +37,26 @@ export const addLog = (message, attention, tech, date = Date.now()) => async (
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ message, attention, tech, date }),
+      body: JSON.stringify(Log),
     });
     dispatch({
       type: ADD_LOGS,
       payload: await res.json(),
     });
     // console.log(res);
+  } catch (err) {
+    dispatch({ type: LOGS_ERROR, payload: err.response.data });
+  }
+};
+
+// Dlete Log
+export const deleteLog = (id) => async (dispatch) => {
+  try {
+    setLoading();
+    await fetch(`/logs/${id}`, {
+      method: "DELETE",
+    });
+    dispatch({ type: DELETE_LOG, payload: id });
   } catch (err) {
     dispatch({ type: LOGS_ERROR, payload: err.response.data });
   }

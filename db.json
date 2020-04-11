@@ -1,80 +1,25 @@
 {
   "logs": [
     {
-      "message": "Changed network card in server 007",
-      "attention": false,
-      "tech": "Sam Smith",
-      "date": "2019-05-31T15:46:10.179Z",
+      "message": "Give New Usb To pc n4",
+      "attention": true,
+      "tech": "Jhon Doe",
+      "date": "2020-04-11T01:22:39.443Z",
       "id": 1
     },
     {
-      "id": 2,
-      "message": "Fixed hard drive on workstation 002",
-      "attention": false,
-      "tech": "John Doe",
-      "date": "2019-05-31T16:18:04.245Z"
-    },
-    {
-      "message": "1122 wireless down",
+      "message": "Add new mouse to pc3",
       "attention": true,
-      "tech": "Sara Wilson",
-      "date": "2019-05-31T15:46:48.690Z",
-      "id": 3
+      "tech": "Jhon Alaa",
+      "date": "2020-04-11T01:23:05.998Z",
+      "id": 2
     },
     {
-      "id": 4,
-      "message": "Workstation 026 is up and running",
-      "attention": false,
-      "tech": "Sara Wilson",
-      "date": "2019-05-31T19:57:35.544Z"
-    },
-    {
-      "message": "Changed network card in server 007",
-      "attention": false,
-      "tech": "Med EL BOUDALI",
-      "date": "2019-05-31T15:46:10.179Z",
-      "id": 5
-    },
-    {
-      "message": "Changed network card in server 008",
-      "attention": false,
-      "tech": "Mom Doe",
-      "date": 1586480866383,
-      "id": 6
-    },
-    {
-      "message": "Add LAN card ro pc N4",
-      "attention": true,
-      "tech": "Mom Doe",
-      "date": 1586481055890,
-      "id": 7
-    },
-    {
-      "message": "Add new Ram 8GB to PC N77",
+      "message": "Add new keyboard to pc5",
       "attention": false,
       "tech": "Jhon Doe",
-      "date": 1586481113702,
-      "id": 8
-    },
-    {
-      "message": "mama",
-      "attention": true,
-      "tech": "Mom Doe",
-      "date": 1586525786948,
-      "id": 9
-    },
-    {
-      "message": false,
-      "attention": "Jhon Doe",
-      "date": 1586525868378,
-      "id": 10
-    },
-    {
-      "message": "dada",
-      "attention": false,
-      "tech": "Sam Doe",
-      "date": 1586525923586,
-      "id": 11
+      "date": "2020-04-11T01:25:12.730Z",
+      "id": 3
     }
   ],
   "techs": [
