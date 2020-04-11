@@ -58,7 +58,7 @@ const AddLogModal = ({ addLog }) => {
               onChange={(e) => setTech(e.target.value)}
             >
               <option value="" disabled>
-                Select Technicin
+                Select Technicien
               </option>
               <option value="Jhon Doe">Jhon Doe</option>
               <option value="Sam Doe">Sam Doe</option>

@@ -2,8 +2,11 @@ import {
   GET_LOGS,
   ADD_LOGS,
   DELETE_LOG,
-  SET_LOADING,
   LOGS_ERROR,
+  SET_CURRENT,
+  UPDATE_LOG,
+  CLEAR_CURRENT,
+  SET_LOADING,
 } from "./Types";
 
 // 1st Function structure
@@ -49,7 +52,24 @@ export const addLog = (Log) => async (dispatch) => {
   }
 };
 
-// Dlete Log
+// Update Log
+export const updateLog = (log) => async (dispatch) => {
+  try {
+    setLoading();
+    const res = await fetch(`/logs/${log.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(log),
+    });
+    dispatch({ type: UPDATE_LOG, payload: await res.json() });
+  } catch (err) {
+    dispatch({ type: LOGS_ERROR, payload: err.response.data });
+  }
+};
+
+// Delete Log
 export const deleteLog = (id) => async (dispatch) => {
   try {
     setLoading();
@@ -60,6 +80,16 @@ export const deleteLog = (id) => async (dispatch) => {
   } catch (err) {
     dispatch({ type: LOGS_ERROR, payload: err.response.data });
   }
+};
+
+// Set Current for update
+export const setCurrent = (currentLog) => {
+  return { type: SET_CURRENT, payload: currentLog };
+};
+
+// clear current log
+export const clearCurrent = () => {
+  return { type: CLEAR_CURRENT };
 };
 
 // Set Loading: True
