@@ -21,9 +21,12 @@ export default (state = initialState, action) => {
         techs: [...state.techs, action.payload]
       };
 
-    // techs: state.techs.map(tech =>
-    //   tech.id === action.payload.id ? action.payload : tech
-    // )
+    case DELETE_TECH:
+      return {
+        ...state,
+        techs: state.techs.filter(tech => tech.id !== action.payload)
+      };
+
     case TECHS_ERROR:
       return { ...state, error: action.payload };
 

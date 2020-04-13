@@ -27,3 +27,11 @@ export const addTech = Tech => async dispatch => {
 };
 
 // Delete Technicians
+export const deleteTech = id => async dispatch => {
+  try {
+    await fetch(`/techs/${id}`, { method: 'DELETE' });
+    dispatch({ type: DELETE_TECH, payload: id });
+  } catch (err) {
+    dispatch({ type: TECHS_ERROR, payload: err.message.data });
+  }
+};
