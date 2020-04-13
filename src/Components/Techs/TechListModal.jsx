@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { getTechs } from "../../Actions/TechActions";
 import TechLogo from "../../Assets/Images/tech.png";
 import TechItem from "../Techs/TechItem";
+import PropTypes from "prop-types";
 
-const TechListModal = () => {
-  const [getTechs, setTechs] = useState([]);
-  const [getLoading, setLoading] = useState(false);
-
+const TechListModal = ({ tech: techs, getTechs }) => {
+  
   useEffect(() => {
-    fetchTechs();
-  }, []);
-
-  const fetchTechs = async () => {
-    setLoading(true);
-    const res = await fetch("/techs", { method: "GET" });
-    const data = await res.json();
-    setTechs(data);
-    setLoading(false);
-  };
+    getTechs();
+  }, [getTechs]);
 
   return (
     <div id="tech-list-modal" className="modal">
@@ -25,12 +18,19 @@ const TechListModal = () => {
           <img src={TechLogo} alt="techLogo" className="logo" /> Technicien List
         </h4>
         <ul className="collection">
-          {!getLoading &&
-            getTechs.map((tech) => <TechItem tech={tech} key={tech.id} />)}
+          {techs !== null &&
+            techs.map((tech) => <TechItem tech={tech} key={tech.id} />)}
         </ul>
       </div>
     </div>
   );
 };
 
-export default TechListModal;
+TechListModal.prototype = {
+  techs: PropTypes.object.isRequired,
+  getTechs: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({ tech: state.tech });
+
+export default connect(mapStateToProps, { getTechs })(TechListModal);
