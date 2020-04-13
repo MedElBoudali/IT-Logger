@@ -1,47 +1,23 @@
 {
   "logs": [
     {
-      "message": "Give New Usb To pc n4",
-      "attention": true,
-      "tech": "Jhon Doe",
-      "date": "2020-04-11T01:22:39.443Z",
-      "id": 1
-    },
-    {
-      "id": 2,
-      "message": "Add new mouse to pc3",
-      "attention": true,
-      "tech": "Jhon Alaa",
-      "date": "2020-04-11T21:48:58.691Z"
-    },
-    {
-      "id": 3,
-      "message": "Add new keyboard to pc2",
+      "message": "Add New Wifi Card To PC3",
       "attention": false,
-      "tech": "Sam Doe",
-      "date": "2020-04-11T20:20:19.924Z"
+      "tech": "Med EL BOUDALI",
+      "date": "2020-04-13T15:21:38.070Z",
+      "id": 1
     }
   ],
   "techs": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Doe"
-    },
-    {
-      "id": 2,
-      "firstName": "Sam",
-      "lastName": "Smith"
-    },
-    {
-      "id": 3,
-      "firstName": "Sara",
-      "lastName": "Wilson"
-    },
-    {
-      "id": 4,
       "firstName": "Med",
-      "lastName": "EL BOUDALI"
+      "lastName": "EL BOUDALI",
+      "id": 1
+    },
+    {
+      "firstName": "Faty",
+      "lastName": "EL BOUDALI",
+      "id": 2
     }
   ]
 }
