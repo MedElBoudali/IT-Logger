@@ -5,8 +5,8 @@ import TechLogo from "../../Assets/Images/tech.png";
 import TechItem from "../Techs/TechItem";
 import PropTypes from "prop-types";
 
-const TechListModal = ({ tech: techs, getTechs }) => {
-  
+const TechListModal = ({ tech: {techs}, getTechs }) => {
+
   useEffect(() => {
     getTechs();
   }, [getTechs]);
