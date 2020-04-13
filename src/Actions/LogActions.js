@@ -7,24 +7,14 @@ import {
   UPDATE_LOG,
   CLEAR_CURRENT,
   SET_LOADING,
-  SEARCH_LOGS,
-} from "./Types";
+  SEARCH_LOGS
+} from './Types';
 
-// 1st Function structure
-// export const getLogs = () => {
-//   return async () => {
-//     setLoading();
-//     const res = await fetch("/logs");
-//     const data = await res.json();
-//     dispatch({ type: GET_LOGS, payload: data });
-//   };
-// };
-
-// 2nd Function structure
+// Get All Logs
 export const getLogs = () => async (dispatch) => {
   try {
     setLoading();
-    const res = await fetch("/logs?_sort=id&_order=desc", { method: "GET" });
+    const res = await fetch('/logs?_sort=id&_order=desc', { method: 'GET' });
     const data = await res.json();
     dispatch({ type: GET_LOGS, payload: data });
   } catch (err) {
@@ -36,16 +26,16 @@ export const getLogs = () => async (dispatch) => {
 export const addLog = (Log) => async (dispatch) => {
   try {
     setLoading();
-    const res = await fetch("/logs", {
-      method: "POST",
+    const res = await fetch('/logs', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(Log),
+      body: JSON.stringify(Log)
     });
     dispatch({
       type: ADD_LOGS,
-      payload: await res.json(),
+      payload: await res.json()
     });
   } catch (err) {
     dispatch({ type: LOGS_ERROR, payload: err.response.data });
@@ -57,11 +47,11 @@ export const updateLog = (log) => async (dispatch) => {
   try {
     setLoading();
     const res = await fetch(`/logs/${log.id}`, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(log),
+      body: JSON.stringify(log)
     });
     dispatch({ type: UPDATE_LOG, payload: await res.json() });
   } catch (err) {
@@ -74,7 +64,7 @@ export const deleteLog = (id) => async (dispatch) => {
   try {
     setLoading();
     await fetch(`/logs/${id}`, {
-      method: "DELETE",
+      method: 'DELETE'
     });
     dispatch({ type: DELETE_LOG, payload: id });
   } catch (err) {
