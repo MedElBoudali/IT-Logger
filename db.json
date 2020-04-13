@@ -1,11 +1,11 @@
 {
   "logs": [
     {
+      "id": 1,
       "message": "Add New Wifi Card To PC3",
       "attention": false,
-      "tech": "Med EL BOUDALI",
-      "date": "2020-04-13T15:21:38.070Z",
-      "id": 1
+      "tech": "Faty Ma Zahra",
+      "date": "2020-04-13T21:45:18.242Z"
     }
   ],
   "techs": [
@@ -13,6 +13,11 @@
       "firstName": "Mohamed",
       "lastName": "EL BOUDALI",
       "id": 1
+    },
+    {
+      "firstName": "Faty Ma",
+      "lastName": "Zahra",
+      "id": 2
     }
   ]
 }

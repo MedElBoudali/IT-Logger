@@ -5,7 +5,7 @@ import TechLogo from '../../Assets/Images/tech.png';
 import TechItem from '../Techs/TechItem';
 import PropTypes from 'prop-types';
 
-const TechListModal = ({ tech: { techs }, getTechs }) => {
+const TechListModal = ({ tech: { techs, loading }, getTechs }) => {
   useEffect(() => {
     getTechs();
   }, [getTechs]);
@@ -16,12 +16,13 @@ const TechListModal = ({ tech: { techs }, getTechs }) => {
         <h4 className='header center'>
           <img src={TechLogo} alt='techLogo' className='logo' /> Technicien List
         </h4>
-        {techs === null || techs.length === 0 ? (
+        {!loading && techs === null ? (
           <p className='center'>No Logs To Show !</p>
         ) : (
           <ul className='collection'>
-            {techs !== null &&
-              techs.map(tech => <TechItem tech={tech} key={tech.id} />)}
+            {techs.map(tech => (
+              <TechItem tech={tech} key={tech.id} />
+            ))}
           </ul>
         )}
       </div>

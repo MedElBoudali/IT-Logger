@@ -64,7 +64,7 @@ const AddLogModal = ({ tech: { techs }, addLog }) => {
                     value={`${tech.firstName} ${tech.lastName}`}
                     key={
                       tech.id
-                    }>{`${tech.firstName} ${tech.lastName}`}</option>
+                    }>{tech.firstName} {tech.lastName}</option>
                 ))}
             </select>
           </div>

@@ -1,4 +1,10 @@
-import { GET_TECHS, ADD_TECH, DELETE_TECH, TECHS_ERROR } from './Types';
+import {
+  GET_TECHS,
+  ADD_TECH,
+  DELETE_TECH,
+  SET_LOADING_TECH,
+  TECHS_ERROR
+} from './Types';
 
 // Get All Technicians
 export const getTechs = () => async dispatch => {
@@ -6,7 +12,7 @@ export const getTechs = () => async dispatch => {
     const res = await fetch('/techs');
     dispatch({ type: GET_TECHS, payload: await res.json() });
   } catch (err) {
-    dispatch({ type: TECHS_ERROR, payload: err.response.data });
+    dispatch({ type: TECHS_ERROR, payload: err.response.statusText });
   }
 };
 
@@ -22,7 +28,7 @@ export const addTech = Tech => async dispatch => {
     });
     dispatch({ type: ADD_TECH, payload: await res.json() });
   } catch (err) {
-    dispatch({ type: TECHS_ERROR, payload: err.message.data });
+    dispatch({ type: TECHS_ERROR, payload: err.response.statusText });
   }
 };
 
@@ -32,6 +38,11 @@ export const deleteTech = id => async dispatch => {
     await fetch(`/techs/${id}`, { method: 'DELETE' });
     dispatch({ type: DELETE_TECH, payload: id });
   } catch (err) {
-    dispatch({ type: TECHS_ERROR, payload: err.message.data });
+    dispatch({ type: TECHS_ERROR, payload: err.response.statusText });
   }
+};
+
+// Set Loading
+export const setLoading = () => {
+  return { type: SET_LOADING_TECH };
 };
