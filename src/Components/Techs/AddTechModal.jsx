@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import {addTech} from '../../Actions/TechActions';
+import { addTech } from '../../Actions/TechActions';
 import M from 'materialize-css/dist/js/materialize';
 import PropTypes from 'prop-types';
 
@@ -10,7 +10,7 @@ const AddTechModal = ({ addTech }) => {
 
   const onSubmit = () => {
     if (getFirstname === '' || getLastname === '') {
-      M.toast({ html: 'Please Enter First & Last name' });
+      M.toast({ html: 'Please Enter First Name & Last Name' });
     } else {
       // Add New Tech
       addTech({
@@ -54,12 +54,11 @@ const AddTechModal = ({ addTech }) => {
           </div>
         </div>
       </div>
-      <div className='modal-footer' style={{ textAlign: 'center' }}>
+      <div className='modal-footer'>
         <a
           href='#!'
           onClick={onSubmit}
-          className='modal-close waves-effect waves-green blue btn'
-        >
+          className='modal-close waves-effect waves-green blue btn'>
           Add Technician
         </a>
       </div>

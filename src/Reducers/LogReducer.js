@@ -7,14 +7,14 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   SET_LOADING,
-  SEARCH_LOGS,
-} from "../Actions/Types";
+  SEARCH_LOGS
+} from '../Actions/Types';
 
 const initialState = {
   logs: null,
   current: null,
   loading: false,
-  error: null,
+  error: null
 };
 
 export default (state = initialState, action) => {
@@ -25,21 +25,21 @@ export default (state = initialState, action) => {
       return {
         ...state,
         logs: [action.payload, ...state.logs],
-        loading: false,
+        loading: false
       };
     case UPDATE_LOG:
       return {
         ...state,
-        logs: state.logs.map((log) =>
+        logs: state.logs.map(log =>
           log.id === action.payload.id ? action.payload : log
         ),
-        loading: false,
+        loading: false
       };
     case DELETE_LOG:
       return {
         ...state,
-        logs: state.logs.filter((log) => log.id !== action.payload),
-        loading: false,
+        logs: state.logs.filter(log => log.id !== action.payload),
+        loading: false
       };
     case SEARCH_LOGS:
       return { ...state, logs: action.payload, loading: false };
@@ -52,7 +52,7 @@ export default (state = initialState, action) => {
     case SET_LOADING:
       return {
         ...state,
-        loading: true,
+        loading: true
       };
     default:
       return state;

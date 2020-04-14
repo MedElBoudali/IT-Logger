@@ -9,6 +9,7 @@ const TechItem = ({ tech: { id, firstName, lastName }, deleteTech }) => {
     deleteTech(id);
     M.toast({ html: `Technician: ${firstName} ${lastName} Deleted` });
   };
+
   return (
     <li className='collection-item'>
       <div>
