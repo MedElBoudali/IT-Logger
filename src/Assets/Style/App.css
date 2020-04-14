@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 html {
   background-color: #ffffff;
@@ -10,15 +10,15 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Varela Round", "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Varela Round', 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
@@ -33,11 +33,20 @@ code {
 }
 
 .header {
-  font-family: "Varela Round" !important;
+  font-family: 'Varela Round' !important;
   color: #4b4b4b;
   font-size: 3rem;
 }
 
+.modal-footer {
+  text-align: center;
+}
+/* Modal */
+.modal {
+  width: 65%;
+  height: 75%;
+}
+/* This classes for later use */
 /* Padding Zero */
 
 .p0 {

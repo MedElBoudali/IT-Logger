@@ -4,14 +4,14 @@ import { addLog } from '../../Actions/LogActions';
 import M from 'materialize-css/dist/js/materialize';
 import PropTypes from 'prop-types';
 
-const AddLogModal = ({ tech: { techs }, addLog }) => {
+const AddLogModal = ({ tech: { techs, loading }, addLog }) => {
   const [getMessage, setMessage] = useState('');
   const [getTech, setTech] = useState('');
   const [getAttention, setAttention] = useState(false);
 
   const onSubmit = async () => {
     if (getMessage === '' || getTech === '') {
-      M.toast({ html: 'Please Enter Message and Tech' });
+      M.toast({ html: 'Please Enter Log and Tech' });
     } else {
       // Add New Log
       const Log = {
@@ -29,10 +29,7 @@ const AddLogModal = ({ tech: { techs }, addLog }) => {
   };
 
   return (
-    <div
-      id='add-log-modal'
-      className='modal'
-      style={{ width: '75%', height: '75%' }}>
+    <div id='add-log-modal' className='modal'>
       <div className='modal-content'>
         <h4>Enter System Log</h4>
         <div className='row'>
@@ -58,13 +55,14 @@ const AddLogModal = ({ tech: { techs }, addLog }) => {
               <option value='' disabled>
                 Select Technicien
               </option>
-              {techs !== null &&
+              {!loading &&
+                techs !== null &&
                 techs.map(tech => (
                   <option
                     value={`${tech.firstName} ${tech.lastName}`}
-                    key={
-                      tech.id
-                    }>{tech.firstName} {tech.lastName}</option>
+                    key={tech.id}>
+                    {tech.firstName} {tech.lastName}
+                  </option>
                 ))}
             </select>
           </div>
@@ -84,7 +82,7 @@ const AddLogModal = ({ tech: { techs }, addLog }) => {
           </div>
         </div>
       </div>
-      <div className='modal-footer' style={{ textAlign: 'center' }}>
+      <div className='modal-footer'>
         <a
           href='#!'
           onClick={onSubmit}

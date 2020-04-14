@@ -4,7 +4,7 @@ import { updateLog } from '../../Actions/LogActions';
 import M from 'materialize-css/dist/js/materialize';
 import PropTypes from 'prop-types';
 
-const EditLogModal = ({ tech: { techs }, current, updateLog }) => {
+const EditLogModal = ({ tech: { techs, loading }, current, updateLog }) => {
   const [getMessage, setMessage] = useState('');
   const [getAttention, setAttention] = useState(false);
   const [getTech, setTech] = useState('');
@@ -19,7 +19,7 @@ const EditLogModal = ({ tech: { techs }, current, updateLog }) => {
 
   const onSubmit = () => {
     if (getMessage === '' || getTech === '') {
-      M.toast({ html: 'Please Enter Message and Tech' });
+      M.toast({ html: 'Please Enter Log and Tech' });
     } else {
       const data = {
         id: current.id,
@@ -37,10 +37,7 @@ const EditLogModal = ({ tech: { techs }, current, updateLog }) => {
   };
 
   return (
-    <div
-      id='edit-log-modal'
-      className='modal'
-      style={{ width: '75%', height: '75%' }}>
+    <div id='edit-log-modal' className='modal'>
       <div className='modal-content'>
         <h4>Enter System Log</h4>
         <div className='row'>
@@ -51,9 +48,6 @@ const EditLogModal = ({ tech: { techs }, current, updateLog }) => {
               value={getMessage}
               onChange={e => setMessage(e.target.value)}
             />
-            {/* <label htmlFor="message" className="active">
-              Log Message
-            </label> */}
           </div>
         </div>
         <div className='row'>
@@ -66,7 +60,8 @@ const EditLogModal = ({ tech: { techs }, current, updateLog }) => {
               <option value='' disabled>
                 Select Technicin
               </option>
-              {techs !== null &&
+              {!loading &&
+                techs !== null &&
                 techs.map(tech => (
                   <option
                     value={`${tech.firstName} ${tech.lastName}`}
@@ -92,7 +87,7 @@ const EditLogModal = ({ tech: { techs }, current, updateLog }) => {
           </div>
         </div>
       </div>
-      <div className='modal-footer' style={{ textAlign: 'center' }}>
+      <div className='modal-footer'>
         <a
           href='#!'
           onClick={onSubmit}

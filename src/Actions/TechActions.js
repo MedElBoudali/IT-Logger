@@ -9,6 +9,7 @@ import {
 // Get All Technicians
 export const getTechs = () => async dispatch => {
   try {
+    setLoading();
     const res = await fetch('/techs');
     dispatch({ type: GET_TECHS, payload: await res.json() });
   } catch (err) {
@@ -16,9 +17,10 @@ export const getTechs = () => async dispatch => {
   }
 };
 
-// Add New Technicians
+// Add New Technician
 export const addTech = Tech => async dispatch => {
   try {
+    setLoading();
     const res = await fetch('/techs', {
       method: 'POST',
       headers: {
@@ -32,9 +34,10 @@ export const addTech = Tech => async dispatch => {
   }
 };
 
-// Delete Technicians
+// Delete Technician by ID
 export const deleteTech = id => async dispatch => {
   try {
+    setLoading();
     await fetch(`/techs/${id}`, { method: 'DELETE' });
     dispatch({ type: DELETE_TECH, payload: id });
   } catch (err) {
@@ -42,7 +45,7 @@ export const deleteTech = id => async dispatch => {
   }
 };
 
-// Set Loading
+// Set Loading: true
 export const setLoading = () => {
   return { type: SET_LOADING_TECH };
 };

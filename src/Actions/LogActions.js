@@ -42,7 +42,7 @@ export const addLog = Log => async dispatch => {
   }
 };
 
-// Update Log
+// Update Log by ID
 export const updateLog = log => async dispatch => {
   try {
     setLoading();
@@ -59,7 +59,7 @@ export const updateLog = log => async dispatch => {
   }
 };
 
-// Delete Log
+// Delete Log by ID
 export const deleteLog = id => async dispatch => {
   try {
     setLoading();
@@ -72,7 +72,7 @@ export const deleteLog = id => async dispatch => {
   }
 };
 
-// Search Logs
+// Search for Log
 export const searchLogs = text => async dispatch => {
   try {
     setLoading();
@@ -83,12 +83,12 @@ export const searchLogs = text => async dispatch => {
   }
 };
 
-// Set Current for update
+// Set Current log
 export const setCurrent = currentLog => {
   return { type: SET_CURRENT, payload: currentLog };
 };
 
-// clear current log
+// Clear current log
 export const clearCurrent = () => {
   return { type: CLEAR_CURRENT };
 };

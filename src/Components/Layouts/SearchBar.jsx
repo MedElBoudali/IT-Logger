@@ -1,28 +1,28 @@
-import React from "react";
-import { connect } from "react-redux";
-import { searchLogs } from "../../Actions/LogActions";
-import PropTypes from "prop-types";
+import React from 'react';
+import { connect } from 'react-redux';
+import { searchLogs } from '../../Actions/LogActions';
+import PropTypes from 'prop-types';
 
 const SearchBar = ({ searchLogs }) => {
-  const onChange = (e) => {
+  const onChange = e => {
     searchLogs(e.target.value);
   };
 
   return (
-    <nav className="purple darken-3">
-      <div className="nav-wrapper">
+    <nav className='purple darken-3'>
+      <div className='nav-wrapper'>
         <form>
-          <div className="input-field">
+          <div className='input-field'>
             <input
-              id="search"
-              type="search"
-              placeholder="Search Logs ..."
+              id='search'
+              type='search'
+              placeholder='Search ...'
               onChange={onChange}
             />
-            <label className="label-icon" htmlFor="search">
-              <i className="material-icons">search</i>
+            <label className='label-icon' htmlFor='search'>
+              <i className='material-icons'>search</i>
             </label>
-            <i className="material-icons">close</i>
+            <i className='material-icons'>close</i>
           </div>
         </form>
       </div>
@@ -31,7 +31,7 @@ const SearchBar = ({ searchLogs }) => {
 };
 
 SearchBar.prototype = {
-  searchLogs: PropTypes.func.isRequired,
+  searchLogs: PropTypes.func.isRequired
 };
 
 export default connect(null, { searchLogs })(SearchBar);
